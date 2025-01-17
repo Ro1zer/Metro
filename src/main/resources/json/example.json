@@ -1,0 +1,277 @@
+[
+  {
+    "line": "red",
+    "stations": [
+      {
+        "id": 0,
+        "name": "Akademmistechko",
+        "isTransit": false
+      },
+      {
+        "id": 1,
+        "name": "Zhytomyrska",
+        "isTransit": false
+      },
+      {
+        "id": 2,
+        "name": "Sviatoshyn",
+        "isTransit": false
+      },
+      {
+        "id": 3,
+        "name": "Nyvky",
+        "isTransit": false
+      },
+      {
+        "id": 4,
+        "name": "Beresteiska",
+        "isTransit": false
+      },
+      {
+        "id": 5,
+        "name": "Shuliavska",
+        "isTransit": false
+      },
+      {
+        "id": 6,
+        "name": "Politekhnichnyi Instytut",
+        "isTransit": false
+      },
+      {
+        "id": 7,
+        "name": "Vokzalna",
+        "isTransit": false
+      },
+      {
+        "id": 8,
+        "name": "Universytet",
+        "isTransit": false
+      },
+      {
+        "id": 9,
+        "name": "Teatralna",
+        "isTransit": true
+      },
+      {
+        "id": 10,
+        "name": "Khreshchatyk",
+        "isTransit": true
+      },
+      {
+        "id": 11,
+        "name": "Arsenalna",
+        "isTransit": false
+      },
+      {
+        "id": 12,
+        "name": "Dnipro",
+        "isTransit": false
+      },
+      {
+        "id": 13,
+        "name": "Hidropark",
+        "isTransit": false
+      },
+      {
+        "id": 14,
+        "name": "Livoberezhna",
+        "isTransit": false
+      },
+      {
+        "id": 15,
+        "name": "Darnytsia",
+        "isTransit": false
+      },
+      {
+        "id": 16,
+        "name": "Chernihivska",
+        "isTransit": false
+      },
+      {
+        "id": 17,
+        "name": "Lisova",
+        "isTransit": false
+      }
+    ]
+  },
+  {
+    "line": "blue",
+    "stations": [
+      {
+        "id": 0,
+        "name": "Heroiv Dnipra",
+        "isTransit": false
+      },
+      {
+        "id": 1,
+        "name": "Minska",
+        "isTransit": false
+      },
+      {
+        "id": 2,
+        "name": "Obolon",
+        "isTransit": false
+      },
+      {
+        "id": 3,
+        "name": "Pochaina",
+        "isTransit": false
+      },
+      {
+        "id": 4,
+        "name": "Tarasa Shevchenka",
+        "isTransit": false
+      },
+      {
+        "id": 5,
+        "name": "Kontraktova Ploshcha",
+        "isTransit": false
+      },
+      {
+        "id": 6,
+        "name": "Poshtova Ploshcha",
+        "isTransit": false
+      },
+      {
+        "id": 7,
+        "name": "Maidan Nezalezhnosti",
+        "isTransit": true
+      },
+      {
+        "id": 8,
+        "name": "Ploshcha Ukrainskykh Heroiv",
+        "isTransit": true
+      },
+      {
+        "id": 9,
+        "name": "Olimpiiska",
+        "isTransit": false
+      },
+      {
+        "id": 10,
+        "name": "Palats Ukraina",
+        "isTransit": false
+      },
+      {
+        "id": 11,
+        "name": "Lybidska",
+        "isTransit": false
+      },
+      {
+        "id": 12,
+        "name": "Demiivska",
+        "isTransit": false
+      },
+      {
+        "id": 13,
+        "name": "Holosiivska",
+        "isTransit": false
+      },
+      {
+        "id": 14,
+        "name": "Vasylkivska",
+        "isTransit": false
+      },
+      {
+        "id": 15,
+        "name": "Vystavkovyi Tsentr",
+        "isTransit": false
+      },
+      {
+        "id": 16,
+        "name": "Ipodrom",
+        "isTransit": false
+      },
+      {
+        "id": 17,
+        "name": "Teremky",
+        "isTransit": false
+      }
+    ]
+  },
+  {
+    "line": "green",
+    "stations": [
+      {
+        "id": 0,
+        "name": "Syrets",
+        "isTransit": false
+      },
+      {
+        "id": 1,
+        "name": "Dorohozhychi",
+        "isTransit": false
+      },
+      {
+        "id": 2,
+        "name": "Lukianivska",
+        "isTransit": false
+      },
+      {
+        "id": 3,
+        "name": "Zoloti Vorota",
+        "isTransit": true
+      },
+      {
+        "id": 4,
+        "name": "Palats Sportu",
+        "isTransit": true
+      },
+      {
+        "id": 5,
+        "name": "Klovska",
+        "isTransit": false
+      },
+      {
+        "id": 6,
+        "name": "Pecherska",
+        "isTransit": false
+      },
+      {
+        "id": 7,
+        "name": "Zvirynetska",
+        "isTransit": false
+      },
+      {
+        "id": 8,
+        "name": "Vydubychi",
+        "isTransit": false
+      },
+      {
+        "id": 9,
+        "name": "Slavutych",
+        "isTransit": true
+      },
+      {
+        "id": 10,
+        "name": "Osokorky",
+        "isTransit": true
+      },
+      {
+        "id": 11,
+        "name": "Pozniaky",
+        "isTransit": false
+      },
+      {
+        "id": 12,
+        "name": "Kharkivska",
+        "isTransit": false
+      },
+      {
+        "id": 13,
+        "name": "Vyrlytsia",
+        "isTransit": false
+      },
+      {
+        "id": 14,
+        "name": "Boryspilska",
+        "isTransit": false
+      },
+      {
+        "id": 15,
+        "name": "Chervonyi Khutir",
+        "isTransit": false
+      }
+    ]
+  }
+]

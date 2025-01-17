@@ -1,25 +1,29 @@
 package org.example.Model;
 
-import java.util.Arrays;
 import java.util.TreeMap;
 import java.util.ArrayList;
 
 import org.example.Enum.Line;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class Metro {
     private TreeMap<String, Station> stations;
 
-    public Metro() {
+    public Metro(JSONArray jsonArray) {
         stations = new TreeMap<>();
-    }
-
-    public Metro(Station ... stationsArray) {
-        stations = new TreeMap<>();
-        for (Station station : stationsArray) {
-            if (station == null) {
-                break;
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject lineJSONObject = jsonArray.getJSONObject(i);
+            String lineStr = lineJSONObject.getString("line");
+            JSONArray stationsJSONArray = lineJSONObject.getJSONArray("stations");
+            for (int j = 0; j < stationsJSONArray.length(); j++) {
+                JSONObject stationJSONObject = stationsJSONArray.getJSONObject(j);
+                stations.put(stationJSONObject.getString("name"), new Station(
+                        stationJSONObject.getInt("id"),
+                        stationJSONObject.getString("name"),
+                        lineStr,
+                        stationJSONObject.getBoolean("isTransit")));
             }
-            stations.put(station.name(), station);
         }
     }
 
@@ -41,10 +45,21 @@ public class Metro {
                 temp.add(station);
             }
         }
-        return Arrays.copyOf(temp.toArray(), temp.size(), Station[].class);
+        return temp.toArray(new Station[temp.size()]);
+    }
+
+    public void print() {
+        for (Station station : stations.values()) {
+            System.out.println(station);
+        }
     }
 
     public void clear() {
         stations.clear();
+    }
+
+    @Override
+    public String toString() {
+        return stations.toString();
     }
 }
