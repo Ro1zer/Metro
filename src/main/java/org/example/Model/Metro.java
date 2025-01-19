@@ -1,9 +1,7 @@
 package org.example.Model;
 
 import java.util.TreeMap;
-import java.util.ArrayList;
 
-import org.example.Enum.Line;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -22,30 +20,13 @@ public class Metro {
                         stationJSONObject.getInt("id"),
                         stationJSONObject.getString("name"),
                         lineStr,
-                        stationJSONObject.getBoolean("isTransit")));
+                        stationJSONObject.getString("transplantationTo")));
             }
         }
-    }
-
-    public void putStation(Station station) {
-        if (stations.containsKey(station.name())) {
-            return;
-        }
-        stations.put(station.name(), station);
     }
 
     public final Station getStation(String name) {
         return stations.get(name);
-    }
-
-    public Station[] getStationArray(Line line) {
-        ArrayList<Station> temp = new ArrayList<>();
-        for (Station station : stations.values()) {
-            if (station.line() == line) {
-                temp.add(station);
-            }
-        }
-        return temp.toArray(new Station[temp.size()]);
     }
 
     public void print() {
@@ -54,9 +35,7 @@ public class Metro {
         }
     }
 
-    public void clear() {
-        stations.clear();
-    }
+    //TODO: Make a functions which will get array of Stations (it's need for printing a direction)
 
     @Override
     public String toString() {

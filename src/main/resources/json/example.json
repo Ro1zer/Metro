@@ -5,92 +5,92 @@
       {
         "id": 0,
         "name": "Akademmistechko",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 1,
         "name": "Zhytomyrska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 2,
         "name": "Sviatoshyn",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 3,
         "name": "Nyvky",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 4,
         "name": "Beresteiska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 5,
         "name": "Shuliavska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 6,
         "name": "Politekhnichnyi Instytut",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 7,
         "name": "Vokzalna",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 8,
         "name": "Universytet",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 9,
         "name": "Teatralna",
-        "isTransit": true
+        "transplantationTo": "Zoloti Vorota"
       },
       {
         "id": 10,
         "name": "Khreshchatyk",
-        "isTransit": true
+        "transplantationTo": "Maidan Nezalezhnosti"
       },
       {
         "id": 11,
         "name": "Arsenalna",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 12,
         "name": "Dnipro",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 13,
         "name": "Hidropark",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 14,
         "name": "Livoberezhna",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 15,
         "name": "Darnytsia",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 16,
         "name": "Chernihivska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 17,
         "name": "Lisova",
-        "isTransit": false
+        "transplantationTo": ""
       }
     ]
   },
@@ -100,92 +100,92 @@
       {
         "id": 0,
         "name": "Heroiv Dnipra",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 1,
         "name": "Minska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 2,
         "name": "Obolon",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 3,
         "name": "Pochaina",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 4,
         "name": "Tarasa Shevchenka",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 5,
         "name": "Kontraktova Ploshcha",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 6,
         "name": "Poshtova Ploshcha",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 7,
         "name": "Maidan Nezalezhnosti",
-        "isTransit": true
+        "transplantationTo": "Khreshchatyk"
       },
       {
         "id": 8,
         "name": "Ploshcha Ukrainskykh Heroiv",
-        "isTransit": true
+        "transplantationTo": "Palats Sportu"
       },
       {
         "id": 9,
         "name": "Olimpiiska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 10,
         "name": "Palats Ukraina",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 11,
         "name": "Lybidska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 12,
         "name": "Demiivska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 13,
         "name": "Holosiivska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 14,
         "name": "Vasylkivska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 15,
         "name": "Vystavkovyi Tsentr",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 16,
         "name": "Ipodrom",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 17,
         "name": "Teremky",
-        "isTransit": false
+        "transplantationTo": ""
       }
     ]
   },
@@ -195,82 +195,82 @@
       {
         "id": 0,
         "name": "Syrets",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 1,
         "name": "Dorohozhychi",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 2,
         "name": "Lukianivska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 3,
         "name": "Zoloti Vorota",
-        "isTransit": true
+        "transplantationTo": "Teatralna"
       },
       {
         "id": 4,
         "name": "Palats Sportu",
-        "isTransit": true
+        "transplantationTo": "Ploshcha Ukrainskykh Heroiv"
       },
       {
         "id": 5,
         "name": "Klovska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 6,
         "name": "Pecherska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 7,
         "name": "Zvirynetska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 8,
         "name": "Vydubychi",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 9,
         "name": "Slavutych",
-        "isTransit": true
+        "transplantationTo": ""
       },
       {
         "id": 10,
         "name": "Osokorky",
-        "isTransit": true
+        "transplantationTo": ""
       },
       {
         "id": 11,
         "name": "Pozniaky",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 12,
         "name": "Kharkivska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 13,
         "name": "Vyrlytsia",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 14,
         "name": "Boryspilska",
-        "isTransit": false
+        "transplantationTo": ""
       },
       {
         "id": 15,
         "name": "Chervonyi Khutir",
-        "isTransit": false
+        "transplantationTo": ""
       }
     ]
   }
