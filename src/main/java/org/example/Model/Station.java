@@ -6,13 +6,13 @@ public class Station {
     private final int id;
     private final String name;
     private final Line line;
-    private final String transplantation;
+    private final Line transplantation;
 
-    public Station() {
-        id = 0;
+    public Station(){
+        id = -1;
         name = "";
         line = null;
-        transplantation = "";
+        transplantation = null;
     }
 
     public Station(int id, String name, String line, String transplantation) {
@@ -20,7 +20,7 @@ public class Station {
         this.id = id;
         this.name = name;
         this.line = Line.fromString(line);
-        this.transplantation = transplantation;
+        this.transplantation = Line.fromString(transplantation);
     }
 
     public int id() {
@@ -33,6 +33,10 @@ public class Station {
 
     public Line line() {
         return line;
+    }
+
+    public Line transplantation() {
+        return transplantation;
     }
 
     @Override

@@ -50,12 +50,12 @@
       {
         "id": 9,
         "name": "Teatralna",
-        "transplantationTo": "Zoloti Vorota"
+        "transplantationTo": "green"
       },
       {
         "id": 10,
         "name": "Khreshchatyk",
-        "transplantationTo": "Maidan Nezalezhnosti"
+        "transplantationTo": "blue"
       },
       {
         "id": 11,
@@ -135,12 +135,12 @@
       {
         "id": 7,
         "name": "Maidan Nezalezhnosti",
-        "transplantationTo": "Khreshchatyk"
+        "transplantationTo": "red"
       },
       {
         "id": 8,
         "name": "Ploshcha Ukrainskykh Heroiv",
-        "transplantationTo": "Palats Sportu"
+        "transplantationTo": "green"
       },
       {
         "id": 9,
@@ -210,12 +210,12 @@
       {
         "id": 3,
         "name": "Zoloti Vorota",
-        "transplantationTo": "Teatralna"
+        "transplantationTo": "red"
       },
       {
         "id": 4,
         "name": "Palats Sportu",
-        "transplantationTo": "Ploshcha Ukrainskykh Heroiv"
+        "transplantationTo": "blue"
       },
       {
         "id": 5,

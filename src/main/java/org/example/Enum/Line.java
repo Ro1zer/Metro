@@ -24,6 +24,7 @@ public enum Line {
         return null;
     }
 
+
     @Override
     public String toString() {
         return "Line{" + color + '}';

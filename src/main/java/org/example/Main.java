@@ -2,10 +2,9 @@ package org.example;
 
 import java.io.*;
 
-import org.example.Engine.MetroEngine;
 import org.json.JSONArray;
 
-import org.example.Model.Metro;
+import org.example.Engine.Metro;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,10 +26,12 @@ public class Main {
             bw.close();
 
             Metro metro = new Metro(new JSONArray(jsonString.toString()));
+            metro.setFrom("Zvirynetska");
+            metro.setTo("Akademmistechko");
             metro.print();
 
         } catch (Exception ex) {
-            return;
+            System.out.println(ex.getMessage());;
         }
     }
 }
