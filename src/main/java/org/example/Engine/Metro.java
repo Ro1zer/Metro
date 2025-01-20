@@ -1,11 +1,12 @@
 package org.example.Engine;
 
+import org.example.Model.Station;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.TreeMap;
 import java.util.Arrays;
 
-import org.example.Model.Station;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -57,16 +58,9 @@ public class Metro {
         }
         final Station[] oneLineStations = getStationArray(from, stationTransitFor);
         final Station[] twoLineStations = getStationArray(stationTransitTo, to);
-        Station[] array = new Station[oneLineStations.length + twoLineStations.length];
-        System.arraycopy(oneLineStations, 0, array, 0, oneLineStations.length);
+        final Station[] array = Arrays.copyOf(oneLineStations, oneLineStations.length + twoLineStations.length);
         System.arraycopy(twoLineStations, 0, array, oneLineStations.length, twoLineStations.length);
         return array;
-    }
-
-    public void print() {
-        for (Station station : direction()) {
-            System.out.println(station);
-        }
     }
 
     private boolean isValid(String stationName) {

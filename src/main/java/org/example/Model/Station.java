@@ -8,9 +8,9 @@ public class Station {
     private final Line line;
     private final Line transplantation;
 
-    public Station(){
+    public Station() {
         id = -1;
-        name = "";
+        name = null;
         line = null;
         transplantation = null;
     }
