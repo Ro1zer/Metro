@@ -1,0 +1,3 @@
+# Version 1.01 Released on January 24
+Some optimisation of calculating distance
+Possibility to start program from of console

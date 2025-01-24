@@ -1,11 +1,12 @@
 package org.example.Engine;
 
+import org.example.Enum.Line;
 import org.example.Model.Station;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.TreeMap;
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -46,7 +47,7 @@ public class Metro {
 
     public Station[] direction() {
         if (from.line().equals(to.line())) {
-            return getStationArray(from, to);
+            return rangeOfStation(from, to);
         }
         Station stationTransitFor = new Station(), stationTransitTo = new Station();
         for (Station station : stations.values()) {
@@ -56,8 +57,8 @@ public class Metro {
                 stationTransitTo = station;
             }
         }
-        final Station[] oneLineStations = getStationArray(from, stationTransitFor);
-        final Station[] twoLineStations = getStationArray(stationTransitTo, to);
+        final Station[] oneLineStations = rangeOfStation(from, stationTransitFor);
+        final Station[] twoLineStations = rangeOfStation(stationTransitTo, to);
         final Station[] array = Arrays.copyOf(oneLineStations, oneLineStations.length + twoLineStations.length);
         System.arraycopy(twoLineStations, 0, array, oneLineStations.length, twoLineStations.length);
         return array;
@@ -67,22 +68,39 @@ public class Metro {
         return stations.containsKey(stationName);
     }
 
-    private Station[] getStationArray(Station from, Station to) {
-        ArrayList<Station> arrayList = new ArrayList<>();
+    private Station[] rangeOfStation(Station from, Station to) {
+        Station[] result = new Station[lineSize(from.line())];
+        AtomicInteger index = new AtomicInteger(0);
         stations.values().forEach(station -> {
             if (station.line() == from.line()) {
-                arrayList.add(station);
+                result[index.getAndIncrement()] = station;
             }
         });
         Comparator<Station> comparator = Comparator.comparing(Station::id);
         if (from.id() > to.id()) {
-            arrayList.sort(comparator.reversed());
+            Arrays.sort(result, comparator.reversed());
         } else {
-            arrayList.sort(comparator);
+            Arrays.sort(result, comparator);
         }
-        final int fromIndex = arrayList.indexOf(from);
-        final int toIndex = arrayList.indexOf(to);
-        return Arrays.copyOfRange(arrayList.toArray(new Station[0]), fromIndex, toIndex + 1);
+        int fromIndex = -1, toIndex = -1;
+        for (index.set(0); index.get() < result.length; index.getAndIncrement()) {
+            if (result[index.get()].equals(from)) {
+                fromIndex = index.get();
+            } else if (result[index.get()].equals(to)) {
+                toIndex = index.get();
+            }
+        }
+        return Arrays.copyOfRange(result, fromIndex, toIndex + 1);
+    }
+
+    private int lineSize(Line line) {
+        AtomicInteger index = new AtomicInteger(0);
+        stations.values().forEach(station -> {
+            if (station.line() == line) {
+                index.getAndIncrement();
+            }
+        });
+        return index.get();
     }
 
     @Override
