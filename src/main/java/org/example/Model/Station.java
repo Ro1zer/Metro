@@ -2,7 +2,7 @@ package org.example.Model;
 
 import org.example.Enum.Line;
 
-public class Station {
+public class Station implements Comparable<Station> {
     private final int id;
     private final String name;
     private final Line line;
@@ -16,7 +16,8 @@ public class Station {
     }
 
     public Station(int id, String name, String line, String transplantation) {
-        if (id < 0) throw new IllegalArgumentException();
+        if (id < 0)
+            throw new IllegalArgumentException();
         this.id = id;
         this.name = name;
         this.line = Line.fromString(line);
@@ -40,7 +41,25 @@ public class Station {
     }
 
     @Override
+    public int compareTo(Station obj) {
+        return obj.id - this.id;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Station s = (Station) obj;
+        return id == s.id && name == s.name && line == s.line && transplantation == s.transplantation;
+    }
+
+    @Override
     public String toString() {
-        return "Station{" + "id=" + id + ", name=" + name + ", line=" + line + ", transplantation=" + transplantation + '}';
+        return "Station{" + "id=" + id + ", name=" + name + ", line=" + line + ", transplantation=" + transplantation
+                + '}';
     }
 }
