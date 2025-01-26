@@ -2,7 +2,7 @@ package org.example.Model;
 
 import org.example.Enum.Line;
 
-public class Station implements Comparable<Station> {
+public class Station {
     private final int id;
     private final String name;
     private final Line line;
@@ -41,11 +41,6 @@ public class Station implements Comparable<Station> {
     }
 
     @Override
-    public int compareTo(Station obj) {
-        return obj.id - this.id;
-    }
-
-    @Override
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;
@@ -59,7 +54,6 @@ public class Station implements Comparable<Station> {
 
     @Override
     public String toString() {
-        return "Station{" + "id=" + id + ", name=" + name + ", line=" + line + ", transplantation=" + transplantation
-                + '}';
+        return "Station{" + "id=" + id + ", name=" + name + ", line=" + line + ", transplantation=" + transplantation + '}';
     }
 }

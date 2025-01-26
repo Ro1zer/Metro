@@ -1,7 +1,7 @@
 package org.example.View;
 
-import org.example.Engine.Metro;
 import org.example.Model.Station;
+import org.example.Service.Metro;
 
 import java.util.Scanner;
 

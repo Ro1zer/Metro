@@ -1,4 +1,4 @@
-package org.example.Engine;
+package org.example.Service;
 
 import org.example.Enum.Line;
 import org.example.Model.Station;
@@ -66,7 +66,16 @@ public class Metro {
         } else {
             Arrays.sort(result, comparator);
         }
-        return Arrays.copyOfRange(result, Arrays.binarySearch(result, from), Arrays.binarySearch(result, to) + 1);
+        return Arrays.copyOfRange(result, linearSearch(result, from), linearSearch(result, to) + 1);
+    }
+
+    private int linearSearch(final Station[] array, final Station key) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(key)) {
+                return i;
+            }
+        }
+        throw new Error("The Station haven't been found: " + key.name());
     }
 
     private Station[] arrayOfStationByLine(Line line) {

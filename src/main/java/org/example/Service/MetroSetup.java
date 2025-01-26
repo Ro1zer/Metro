@@ -1,4 +1,4 @@
-package org.example.Engine;
+package org.example.Service;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -28,8 +28,7 @@ public class MetroSetup {
 
     private static JSONArray setup(String path) {
         try {
-            // TODO: I know that is the bad way for reading json file, I will change that
-            // soon
+            // TODO: I know that is the bad way for reading json file, I will change that soon
             BufferedReader bw = new BufferedReader(new FileReader(path));
             StringBuilder jsonString = new StringBuilder();
             String s = "";
