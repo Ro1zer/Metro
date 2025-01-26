@@ -8,29 +8,15 @@ import java.util.TreeMap;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 public class Metro {
     private final TreeMap<String, Station> stationTreeMap;
     private Station from;
     private Station to;
 
-    public Metro(JSONArray jsonArray) {
+    public Metro() {
         stationTreeMap = new TreeMap<>();
-        for (int i = 0; i < jsonArray.length(); i++) {
-            JSONObject lineJSONObject = jsonArray.getJSONObject(i);
-            String lineStr = lineJSONObject.getString("line");
-            JSONArray stationsJSONArray = lineJSONObject.getJSONArray("stations");
-            for (int j = 0; j < stationsJSONArray.length(); j++) {
-                JSONObject stationJSONObject = stationsJSONArray.getJSONObject(j);
-                stationTreeMap.put(stationJSONObject.getString("name"), new Station(
-                        stationJSONObject.getInt("id"),
-                        stationJSONObject.getString("name"),
-                        lineStr,
-                        stationJSONObject.getString("transplantationTo")));
-            }
-        }
+        from = null;
+        to = null;
     }
 
     public void setFrom(String from) {
@@ -73,38 +59,31 @@ public class Metro {
     }
 
     private Station[] rangeOfStation(Station from, Station to) {
-        Station[] result = new Station[lineSize(from.line())];
-        AtomicInteger index = new AtomicInteger(0);
-        stationTreeMap.values().forEach(station -> {
-            if (station.line() == from.line()) {
-                result[index.getAndIncrement()] = station;
-            }
-        });
+        Station[] result = arrayOfStationByLine(from.line());
         Comparator<Station> comparator = Comparator.comparing(Station::id);
         if (from.id() > to.id()) {
             Arrays.sort(result, comparator.reversed());
         } else {
             Arrays.sort(result, comparator);
         }
-        int fromIndex = -1, toIndex = -1;
-        for (index.set(0); index.get() < result.length; index.getAndIncrement()) {
-            if (result[index.get()].equals(from)) {
-                fromIndex = index.get();
-            } else if (result[index.get()].equals(to)) {
-                toIndex = index.get();
-            }
-        }
-        return Arrays.copyOfRange(result, fromIndex, toIndex + 1);
+        return Arrays.copyOfRange(result, Arrays.binarySearch(result, from), Arrays.binarySearch(result, to) + 1);
     }
 
-    private int lineSize(Line line) {
-        AtomicInteger index = new AtomicInteger(0);
+    private Station[] arrayOfStationByLine(Line line) {
+        AtomicInteger counter = new AtomicInteger(0);
         stationTreeMap.values().forEach(station -> {
             if (station.line() == line) {
-                index.getAndIncrement();
+                counter.getAndIncrement();
             }
         });
-        return index.get();
+        Station[] array = new Station[counter.get()];
+        counter.set(0);
+        stationTreeMap.values().forEach(station -> {
+            if (station.line() == line) {
+                array[counter.getAndIncrement()] = station;
+            }
+        });
+        return array;
     }
 
     @Override
