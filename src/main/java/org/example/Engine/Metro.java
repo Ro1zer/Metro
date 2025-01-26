@@ -12,19 +12,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Metro {
-    private final TreeMap<String, Station> stations;
+    private final TreeMap<String, Station> stationTreeMap;
     private Station from;
     private Station to;
 
     public Metro(JSONArray jsonArray) {
-        stations = new TreeMap<>();
+        stationTreeMap = new TreeMap<>();
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject lineJSONObject = jsonArray.getJSONObject(i);
             String lineStr = lineJSONObject.getString("line");
             JSONArray stationsJSONArray = lineJSONObject.getJSONArray("stations");
             for (int j = 0; j < stationsJSONArray.length(); j++) {
                 JSONObject stationJSONObject = stationsJSONArray.getJSONObject(j);
-                stations.put(stationJSONObject.getString("name"), new Station(
+                stationTreeMap.put(stationJSONObject.getString("name"), new Station(
                         stationJSONObject.getInt("id"),
                         stationJSONObject.getString("name"),
                         lineStr,
@@ -35,29 +35,33 @@ public class Metro {
 
     public void setFrom(String from) {
         if (isValid(from)) {
-            this.from = stations.get(from);
+            this.from = stationTreeMap.get(from);
         }
     }
 
     public void setTo(String to) {
         if (isValid(to)) {
-            this.to = stations.get(to);
+            this.to = stationTreeMap.get(to);
         }
+    }
+
+    public void putStation(Station station) {
+        stationTreeMap.put(station.name(), station);
     }
 
     public Station[] direction() {
         if (from.line().equals(to.line())) {
             return rangeOfStation(from, to);
         }
-        Station stationTransitFor = new Station(), stationTransitTo = new Station();
-        for (Station station : stations.values()) {
+        Station stationTransitFrom = new Station(), stationTransitTo = new Station();
+        for (Station station : stationTreeMap.values()) {
             if (station.line() == from.line() && station.transplantation() == to.line()) {
-                stationTransitFor = station;
+                stationTransitFrom = station;
             } else if (station.line() == to.line() && station.transplantation() == from.line()) {
                 stationTransitTo = station;
             }
         }
-        final Station[] oneLineStations = rangeOfStation(from, stationTransitFor);
+        final Station[] oneLineStations = rangeOfStation(from, stationTransitFrom);
         final Station[] twoLineStations = rangeOfStation(stationTransitTo, to);
         final Station[] array = Arrays.copyOf(oneLineStations, oneLineStations.length + twoLineStations.length);
         System.arraycopy(twoLineStations, 0, array, oneLineStations.length, twoLineStations.length);
@@ -65,13 +69,13 @@ public class Metro {
     }
 
     private boolean isValid(String stationName) {
-        return stations.containsKey(stationName);
+        return stationTreeMap.containsKey(stationName);
     }
 
     private Station[] rangeOfStation(Station from, Station to) {
         Station[] result = new Station[lineSize(from.line())];
         AtomicInteger index = new AtomicInteger(0);
-        stations.values().forEach(station -> {
+        stationTreeMap.values().forEach(station -> {
             if (station.line() == from.line()) {
                 result[index.getAndIncrement()] = station;
             }
@@ -95,7 +99,7 @@ public class Metro {
 
     private int lineSize(Line line) {
         AtomicInteger index = new AtomicInteger(0);
-        stations.values().forEach(station -> {
+        stationTreeMap.values().forEach(station -> {
             if (station.line() == line) {
                 index.getAndIncrement();
             }
@@ -105,6 +109,6 @@ public class Metro {
 
     @Override
     public String toString() {
-        return stations.toString();
+        return stationTreeMap.toString();
     }
 }

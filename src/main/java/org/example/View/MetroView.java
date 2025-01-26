@@ -12,12 +12,22 @@ import java.util.Scanner;
 
 public class MetroView {
     private final Metro metro;
+    private boolean isRunning;
 
     public MetroView(String path) {
         metro = new Metro(setup(path));
+        isRunning = false;
     }
 
     public void run() {
+        System.out.println("--Metro View--");
+        isRunning = true;
+        enterRoute();
+        displayRoute();
+        isRunning = false;
+    }
+
+    private void enterRoute() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the name of the start station: ");
         String start = scanner.nextLine();
@@ -26,11 +36,18 @@ public class MetroView {
         String end = scanner.nextLine();
         metro.setTo(end);
         scanner.close();
-        final Station[] result = metro.direction();
-        final int FIRST_INDEX = 0;
-        final int LAST_INDEX = result.length - 1;
-        for (Station station : result) {
-            System.out.printf(station.equals(result[LAST_INDEX]) ? "%s" : "%s -> ", station.name());
+    }
+
+    private void displayRoute() {
+        final Station[] route = metro.direction();
+        for (int i = 0; i < route.length; i++) {
+            if ( route[i] != null && route[i].transplantation() == route[route.length - 1].line()) {
+                System.out.printf("%s <==> ", route[i].name());
+            } else if (i == route.length - 1) {
+                System.out.println(route[i].name());
+            } else {
+                System.out.printf("%s -> ", route[i].name());
+            }
         }
     }
 
