@@ -3,19 +3,14 @@ package org.example.View;
 import org.example.Engine.Metro;
 import org.example.Model.Station;
 
-import org.json.JSONArray;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-
 import java.util.Scanner;
 
 public class MetroView {
     private final Metro metro;
     private boolean isRunning;
 
-    public MetroView(String path) {
-        metro = new Metro(setup(path));
+    public MetroView(Metro metro) {
+        this.metro = metro;
         isRunning = false;
     }
 
@@ -49,24 +44,5 @@ public class MetroView {
                 System.out.printf("%s -> ", route[i].name());
             }
         }
-    }
-
-    private JSONArray setup(String path) {
-        try {
-            //TODO: I know that is the bad way for reading json file, I will change that soon
-            BufferedReader bw = new BufferedReader(new FileReader(path));
-            StringBuilder jsonString = new StringBuilder();
-            String s = "";
-            while ((s = bw.readLine()) != null) {
-                s = s + "\n";
-                jsonString.append(s);
-            }
-            bw.close();
-            return new JSONArray(jsonString.toString());
-
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        throw new Error("Something went wrong");
     }
 }
