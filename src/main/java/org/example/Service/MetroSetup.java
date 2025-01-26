@@ -17,11 +17,8 @@ public class MetroSetup {
             JSONArray stationsJSONArray = lineJSONObject.getJSONArray("stations");
             for (int j = 0; j < stationsJSONArray.length(); j++) {
                 JSONObject stationJSONObject = stationsJSONArray.getJSONObject(j);
-                metro.putStation(new Station(
-                        stationJSONObject.getInt("id"),
-                        stationJSONObject.getString("name"),
-                        lineStr,
-                        stationJSONObject.getString("transplantationTo")));
+                metro.putStation(new Station(stationJSONObject.getInt("id"), stationJSONObject.getString("name"),
+                        lineStr, stationJSONObject.getString("transplantationTo")));
             }
         }
     }
@@ -39,7 +36,8 @@ public class MetroSetup {
             bw.close();
             return new JSONArray(jsonString.toString());
 
-        } catch (Exception ex) {
+        }
+        catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         throw new Error("Something went wrong");

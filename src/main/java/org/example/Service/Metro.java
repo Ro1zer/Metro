@@ -43,7 +43,8 @@ public class Metro {
         for (Station station : stationTreeMap.values()) {
             if (station.line() == from.line() && station.transplantation() == to.line()) {
                 stationTransitFrom = station;
-            } else if (station.line() == to.line() && station.transplantation() == from.line()) {
+            }
+            else if (station.line() == to.line() && station.transplantation() == from.line()) {
                 stationTransitTo = station;
             }
         }
@@ -63,7 +64,8 @@ public class Metro {
         Comparator<Station> comparator = Comparator.comparing(Station::id);
         if (from.id() > to.id()) {
             Arrays.sort(result, comparator.reversed());
-        } else {
+        }
+        else {
             Arrays.sort(result, comparator);
         }
         return Arrays.copyOfRange(result, linearSearch(result, from), linearSearch(result, to) + 1);

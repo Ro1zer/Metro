@@ -1,9 +1,7 @@
 package org.example.Enum;
 
 public enum Line {
-    Red("Red"),
-    Blue("Blue"),
-    Green("Green");
+    Red("Red"), Blue("Blue"), Green("Green");
 
     private final String color;
 
