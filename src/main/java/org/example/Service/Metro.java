@@ -55,6 +55,23 @@ public class Metro {
         return array;
     }
 
+    public Station[] arrayOfStationByLine(Line line) {
+        AtomicInteger counter = new AtomicInteger(0);
+        stationTreeMap.values().forEach(station -> {
+            if (station.line() == line) {
+                counter.getAndIncrement();
+            }
+        });
+        Station[] array = new Station[counter.get()];
+        counter.set(0);
+        stationTreeMap.values().forEach(station -> {
+            if (station.line() == line) {
+                array[counter.getAndIncrement()] = station;
+            }
+        });
+        return array;
+    }
+
     private boolean isValid(String stationName) {
         return stationTreeMap.containsKey(stationName);
     }
@@ -80,22 +97,6 @@ public class Metro {
         throw new Error("The Station haven't been found: " + key.name());
     }
 
-    private Station[] arrayOfStationByLine(Line line) {
-        AtomicInteger counter = new AtomicInteger(0);
-        stationTreeMap.values().forEach(station -> {
-            if (station.line() == line) {
-                counter.getAndIncrement();
-            }
-        });
-        Station[] array = new Station[counter.get()];
-        counter.set(0);
-        stationTreeMap.values().forEach(station -> {
-            if (station.line() == line) {
-                array[counter.getAndIncrement()] = station;
-            }
-        });
-        return array;
-    }
 
     @Override
     public String toString() {
