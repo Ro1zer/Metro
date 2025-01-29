@@ -9,7 +9,8 @@ import org.json.JSONObject;
 import org.example.Model.Station;
 
 public class MetroSetup {
-    public static void setupMetro(Metro metro, String path) {
+    public static Metro setupMetro( String path) {
+        Metro metro = new Metro();
         JSONArray jsonArray = setup(path);
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject lineJSONObject = jsonArray.getJSONObject(i);
@@ -21,6 +22,7 @@ public class MetroSetup {
                         lineStr, stationJSONObject.getString("transplantationTo")));
             }
         }
+        return metro;
     }
 
     private static JSONArray setup(String path) {
